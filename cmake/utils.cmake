@@ -1,0 +1,7 @@
+function (add_demo DEMO_NAME)
+    file (GLOB_RECURSE HDRS "${DEMO_NAME}/*.h" "${DEMO_NAME}/*.hpp")
+    file (GLOB_RECURSE SRCS "${DEMO_NAME}/*.c" "${DEMO_NAME}/*.cpp")
+    add_executable (${DEMO_NAME} ${HDRS} ${SRCS})
+    target_link_libraries (${DEMO_NAME} uv)
+    set_target_properties(${DEMO_NAME} PROPERTIES FOLDER "Demos")
+endfunction (add_demo)

@@ -14,9 +14,11 @@ void cleanup_handles(uv_process_t *req, int64_t exit_status, int term_signal) {
     uv_close((uv_handle_t*) req, NULL);
 }
 
+#define PATH_SIZE 500
+
 void invoke_cgi_script(uv_tcp_t *client) {
-    size_t size = 500;
-    char path[size];
+    size_t size = PATH_SIZE;
+    char path[PATH_SIZE];
     uv_exepath(path, &size);
     strcpy(path + (strlen(path) - strlen("cgi")), "tick");
 
