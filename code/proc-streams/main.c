@@ -13,11 +13,13 @@ void on_exit(uv_process_t *req, int64_t exit_status, int term_signal) {
     uv_close((uv_handle_t*) req, NULL);
 }
 
+#define PATH_LEN 500
+
 int main() {
     loop = uv_default_loop();
 
-    size_t size = 500;
-    char path[size];
+    size_t size = PATH_LEN;
+    char path[PATH_LEN];
     uv_exepath(path, &size);
     strcpy(path + (strlen(path) - strlen("proc-streams")), "test");
 

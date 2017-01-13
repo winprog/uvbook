@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#ifndef WIN32
 #include <unistd.h>
+#endif
+
 #include <uv.h>
 
 uv_loop_t *loop;

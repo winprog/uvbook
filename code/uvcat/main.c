@@ -1,7 +1,10 @@
 #include <assert.h>
 #include <stdio.h>
 #include <fcntl.h>
+#ifndef WIN32
 #include <unistd.h>
+#endif
+
 #include <uv.h>
 
 void on_read(uv_fs_t *req);

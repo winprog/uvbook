@@ -1,5 +1,7 @@
 include_directories (${LIBUV_INCLUDE_DIR})
 get_demo_names (DEMO_NAMES)
 foreach (DEMO_NAME ${DEMO_NAMES})
-	add_demo (${DEMO_NAME})
+    if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${DEMO_NAME}/CMakeLists.txt")
+	    add_subdirectory (${DEMO_NAME})
+    endif ()
 endforeach ()

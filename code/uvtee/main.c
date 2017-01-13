@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <fcntl.h>
-#include <unistd.h>
+
 #include <string.h>
 #include <stdlib.h>
+
+#ifndef WIN32
+    #include <unistd.h>
+#endif
 
 #include <uv.h>
 

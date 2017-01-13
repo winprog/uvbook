@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#ifdef WIN32
 
-#else
+#ifndef WIN32
 	#include <unistd.h>
+#else
+#include <windows.h>
+#define sleep(t) Sleep((t)*1000)
 #endif
 
-#if 0
 int main() {
     int i;
     for (i = 0; i < 10; i++) {
@@ -17,4 +18,3 @@ int main() {
     printf("BOOM!\n");
     return 0;
 }
-#endif
