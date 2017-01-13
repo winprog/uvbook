@@ -1,2 +1,5 @@
 include_directories (${LIBUV_INCLUDE_DIR})
-add_demo (cgi)
+get_demo_names (DEMO_NAMES)
+foreach (DEMO_NAME ${DEMO_NAMES})
+	add_demo (${DEMO_NAME})
+endforeach ()
